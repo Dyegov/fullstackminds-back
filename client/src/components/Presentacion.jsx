@@ -21,6 +21,11 @@ const Presentacion = () => {
         <span>CC: </span> 1015425982 <br />
         <span>Email: </span> amlandazuric@gmail.com
       </p>
+      <p>
+        <span>Nombre:</span> Einer de Jesús Medina Fernández <br />
+        <span>CC: </span> 1045748822 <br />
+        <span>Email: </span> einermedina15@gmail.com
+      </p>
     </div>
   );
 };
