@@ -1,6 +1,5 @@
 // Imports
 const express = require('express');
-const mongoose = require('mongoose');
 const cors = require('cors');
 
 // App
@@ -12,7 +11,7 @@ app.use(express.json());
 app.use(cors());
 
 // BD
-require('db.ts');
+require('./db.ts');
 
 // Models
 
