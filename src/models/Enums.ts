@@ -10,4 +10,9 @@ enum Enum_FaseProyecto {
   nula = '',
 }
 
-export { Enum_EstadoProyecto, Enum_FaseProyecto };
+enum Enum_EstadoIncripcion {
+  aceptada = 'Aceptada',
+  rechazada = 'Rechazada',
+}
+
+export { Enum_EstadoProyecto, Enum_FaseProyecto, Enum_EstadoIncripcion };

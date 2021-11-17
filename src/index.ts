@@ -16,6 +16,13 @@ require('./db.ts');
 // Models
 import { Proyectos } from './models/Proyectos';
 
+// import endpoints
+// Inscripciones
+const routerInscripciones = require("./endpoints/Inscripciones");
+
+// use endpoints
+app.use("/inscripciones", routerInscripciones);
+
 // Routes
 app.get('/', (req: any, res: any) => {
   res.send('test');
