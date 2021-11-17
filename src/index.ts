@@ -31,17 +31,38 @@ app.get('/', (req: any, res: any) => {
 
 // Vista y Controlador Creación Proyectos
 // CREATE
-app.post('/proyecto', async (req: any, res: any) => {
+app.post('/proyectos', async (req: any, res: any) => {
   Proyectos.create(req.body)
     .then((response) => res.json(response))
     .catch((e) => res.send(e));
 });
 
 // READ
+app.get('/proyectos', async (req: any, res: any) => {
+  Proyectos.find()
+    .then((response) => res.json(response))
+    .catch((e) => console.log(e));
+});
+
+app.get('/proyectos/:_id', async (req: any, res: any) => {
+  Proyectos.findById(req.params._id)
+    .then((response) => res.json(response))
+    .catch((e) => console.log(e));
+});
 
 // UPDATE
+app.put('/proyectos/:_id', async (req: any, res: any) => {
+  Proyectos.findByIdAndUpdate(req.params._id, req.body, { new: true })
+    .then((response) => res.json(response))
+    .catch((e) => console.log(e));
+});
 
 // DELETE
+app.delete('/proyectos/:_id', async (req: any, res: any) => {
+  Proyectos.findByIdAndDelete(req.params._id)
+    .then((response) => res.json(response))
+    .catch((e) => console.log(e));
+});
 
 /* --------------------------------------- */
 
@@ -57,7 +78,7 @@ app.post('/avance', async (req: any, res: any) => {
   });
 
   AvanceAgregar.save().then((AvanceResult) => {
-    res.send({ data: "Creado satisfactoriamente" });
+    res.send({ data: 'Creado satisfactoriamente' });
   });
 });
 
@@ -80,16 +101,15 @@ app.put('/avance/:id', async (req: any, res: any) => {
   });
 
   Avances.findByIdAndUpdate(id, AvanceModificar).then((AvanceResult) => {
-    res.send({ data: "Actualizado satisfactoriamente" });
+    res.send({ data: 'Actualizado satisfactoriamente' });
   });
 });
 
 // DELETE
 app.delete('/avance/:id', async (req: any, res: any) => {
-  Avances.findByIdAndRemove(req.params.id)
-    .then((AvanceResult) => {
-      res.send({ data: "Eliminado satisfactoriamente" });
-    })
+  Avances.findByIdAndRemove(req.params.id).then((AvanceResult) => {
+    res.send({ data: 'Eliminado satisfactoriamente' });
+  });
 });
 
 // Server
