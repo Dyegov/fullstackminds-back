@@ -18,7 +18,7 @@ router.post("/",
 // Get all
 router.get("/",
     async (req: any, res: any) => {
-        Inscripciones.find()
+        Inscripciones.find()//.populate('Usuarios')
             .then((response: any) => { res.json(response) })
             .catch((err: any) => { res.json({ error: err }); });
     }

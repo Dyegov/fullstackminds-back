@@ -4,7 +4,7 @@ import { Proyectos } from "./Proyectos"
 // import { Usuarios } from "./Usuarios"
 
 
-interface Inscripciones {
+interface Inscripcion {
     proyecto: Schema.Types.ObjectId;
     estudiante: Schema.Types.ObjectId;
     estado: Enum_EstadoIncripcion;
@@ -12,7 +12,7 @@ interface Inscripciones {
     fechaEgreso: Date;
 }
 
-const inscripcionesSchema = new Schema<Inscripciones>({
+const inscripcionesSchema = new Schema<Inscripcion>({
     proyecto: {
         type: Schema.Types.ObjectId,
         required: true,
