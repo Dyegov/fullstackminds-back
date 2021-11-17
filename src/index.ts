@@ -82,6 +82,13 @@ app.get('/avance', async (req: any, res: any) => {
   });
 });
 
+app.get('/avance/:id', async (req: any, res: any) => {
+  const id = req.params.id;
+  Avances.findById(id).then((AvanceResult) => {
+    res.send({ data: AvanceResult });
+  });
+});
+
 // UPDATE
 app.put('/avance/:id', async (req: any, res: any) => {
   const id = req.params.id;
