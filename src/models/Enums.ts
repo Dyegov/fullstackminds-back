@@ -3,6 +3,11 @@ enum Enum_EstadoProyecto {
   inactivo = 'Inactivo',
 }
 
+enum Enum_TipoObjetivo {
+  general = 'GENERAL',
+  especifico = 'ESPECIFICO',
+}
+
 enum Enum_FaseProyecto {
   iniciado = 'Iniciado',
   desarrollo = 'Desarrollo',
@@ -10,4 +15,4 @@ enum Enum_FaseProyecto {
   nula = '',
 }
 
-export { Enum_EstadoProyecto, Enum_FaseProyecto };
+export { Enum_EstadoProyecto, Enum_TipoObjetivo, Enum_FaseProyecto };

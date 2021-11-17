@@ -1,8 +1,9 @@
 import { Schema, model } from 'mongoose';
-import { Enum_EstadoProyecto, Enum_FaseProyecto } from './Enums';
+import { Enum_EstadoProyecto, Enum_TipoObjetivo, Enum_FaseProyecto } from './Enums';
 
 interface Proyectos {
   nombre: string;
+  objetivos: [{ descripcion: string; tipo: Enum_TipoObjetivo }];
   presupuesto: number;
   fechaInicio: Date;
   fechaFin: Date;
@@ -16,6 +17,19 @@ const proyectosSchema = new Schema<Proyectos>({
     type: String,
     required: true,
   },
+  objetivos: [
+    {
+      descripcion: {
+        type: String,
+        required: true,
+      },
+      tipo: {
+        type: String,
+        enum: Enum_TipoObjetivo,
+        required: true,
+      },
+    },
+  ],
   presupuesto: {
     type: Number,
     required: true,
