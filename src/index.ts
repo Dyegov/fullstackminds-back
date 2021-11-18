@@ -19,10 +19,10 @@ import { Avances } from './models/Avances';
 
 // import endpoints
 // Inscripciones
-const routerInscripciones = require("./endpoints/Inscripciones");
+const routerInscripciones = require('./endpoints/Inscripciones');
 
 // use endpoints
-app.use("/inscripciones", routerInscripciones);
+app.use('/inscripciones', routerInscripciones);
 
 // Routes
 app.get('/', (req: any, res: any) => {
@@ -41,18 +41,18 @@ app.post('/proyectos', async (req: any, res: any) => {
 app.get('/proyectos', async (req: any, res: any) => {
   Proyectos.find()
     .then((response) => res.json(response))
-    .catch((e) => console.log(e));
+    .catch((e) => res.send(e));
 });
 
 app.get('/proyectos/:_id', async (req: any, res: any) => {
   Proyectos.findById(req.params._id)
     .then((response) => res.json(response))
-    .catch((e) => console.log(e));
+    .catch((e) => res.send(e));
 });
 
 // UPDATE
 app.put('/proyectos/:_id', async (req: any, res: any) => {
-  Proyectos.findByIdAndUpdate(req.params._id, req.body, { new: true })
+  Proyectos.findByIdAndUpdate(req.params._id, req.body, { new: true, runValidators: true })
     .then((response) => res.json(response))
     .catch((e) => console.log(e));
 });
