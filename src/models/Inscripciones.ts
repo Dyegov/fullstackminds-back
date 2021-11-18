@@ -1,7 +1,7 @@
 import { Schema, model } from 'mongoose';
 import { Enum_EstadoIncripcion } from "./Enums"
 import { Proyectos } from "./Proyectos"
-// import { Usuarios } from "./Usuarios"
+import { Usuarios } from "./Usuarios"
 
 
 interface Inscripcion {
@@ -21,7 +21,7 @@ const inscripcionesSchema = new Schema<Inscripcion>({
     estudiante: {
         type: Schema.Types.ObjectId,
         required: true,
-        ref: 'Usuarios'
+        ref: Usuarios
     },
     estado: {
         type: String,

@@ -1,13 +1,13 @@
 import { Schema, model } from 'mongoose';
 import { Proyectos } from './Proyectos';
-//import { Usuarios } from './Usuarios';
+import { Usuarios } from './Usuarios';
 
 interface Avances {
     proyecto: Schema.Types.ObjectId;
     fecha: Date;
     descripcion: string;
     observaciones: [string];
-    //   creadoPor: Schema.Types.ObjectId;
+    creadoPor: Schema.Types.ObjectId;
 }
 
 const avancesSchema = new Schema<Avances>({
@@ -29,11 +29,11 @@ const avancesSchema = new Schema<Avances>({
         ref: Proyectos,
         required: true,
     },
-    //   creadoPor: {
-    //     type: Schema.Types.ObjectId,
-    //     //ref: Usuarios,
-    //     required: true,
-    //   },
+    creadoPor: {
+        type: Schema.Types.ObjectId,
+        ref: Usuarios,
+        required: true,
+    },
 });
 
 const Avances = model('Avances', avancesSchema, 'Avances');
