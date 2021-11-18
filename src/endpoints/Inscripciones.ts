@@ -24,10 +24,19 @@ router.get("/",
     }
 );
 
+// Get by id
+router.get("/:id",
+    async (req: any, res: any) => {
+        Inscripciones.findOne({ _id: req.params.id }).populate('proyecto')//.populate('estudiante')
+            .then((response: any) => { res.json(response) })
+            .catch((err: any) => { res.json({ error: err }); });
+    }
+);
+
 // Update by id
 router.put("/:id",
     async (req: any, res: any) => {
-        Inscripciones.findByIdAndUpdate({ _id: req.params.id }, req.body)
+        Inscripciones.findByIdAndUpdate({ _id: req.params.id }, req.body, { runValidators: true })
             .then((response: any) => { res.json(response) })
             .catch((err: any) => { res.json({ error: err }); });
     }
