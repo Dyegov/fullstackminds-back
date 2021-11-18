@@ -68,55 +68,37 @@ app.delete('/proyectos/:_id', async (req: any, res: any) => {
 
 // Vista y Controlador Creación Avances
 // CREATE
-app.post('/avance', async (req: any, res: any) => {
-  const AvanceAgregar = new Avances({
-    proyecto: req.body.proyecto,
-    fecha: req.body.fecha,
-    descripcion: req.body.descripcion,
-    observaciones: req.body.observaciones,
-    // creadoPor: req.body.creadoPor;
-  });
-
-  AvanceAgregar.save().then((AvanceResult) => {
-    res.send({ data: 'Creado satisfactoriamente' });
-  });
+app.post('/avances', async (req: any, res: any) => {
+  Avances.create(req.body)
+    .then((response) => res.json(response))
+    .catch((e) => res.send(e));
 });
 
 // READ
-app.get('/avance', async (req: any, res: any) => {
-  Avances.find().then((AvanceResult) => {
-    res.send({ data: AvanceResult });
-  });
+app.get('/avances', async (req: any, res: any) => {
+  Avances.find()
+    .then((response) => res.json(response))
+    .catch((e) => res.send(e));
 });
 
-app.get('/avance/:id', async (req: any, res: any) => {
-  const id = req.params.id;
-  Avances.findById(id).then((AvanceResult) => {
-    res.send({ data: AvanceResult });
-  });
+app.get('/avances/:id', async (req: any, res: any) => {
+  Avances.findById(req.params.id)
+    .then((response) => res.json(response))
+    .catch((e) => res.send(e));
 });
 
 // UPDATE
-app.put('/avance/:id', async (req: any, res: any) => {
-  const id = req.params.id;
-  const AvanceModificar = new Avances({
-    _id: id,
-    proyecto: req.body.proyecto,
-    fecha: req.body.fecha,
-    descripcion: req.body.descripcion,
-    observaciones: req.body.observaciones,
-  });
-
-  Avances.findByIdAndUpdate(id, AvanceModificar).then((AvanceResult) => {
-    res.send({ data: 'Actualizado satisfactoriamente' });
-  });
+app.put('/avances/:id', async (req: any, res: any) => {
+  Avances.findByIdAndUpdate(req.params.id, req.body, { new: true })
+    .then((response) => res.json(response))
+    .catch((e) => res.send(e));
 });
 
 // DELETE
-app.delete('/avance/:id', async (req: any, res: any) => {
-  Avances.findByIdAndRemove(req.params.id).then((AvanceResult) => {
-    res.send({ data: 'Eliminado satisfactoriamente' });
-  });
+app.delete('/avances/:id', async (req: any, res: any) => {
+  Avances.findByIdAndRemove(req.params.id)
+    .then((response) => res.json(response))
+    .catch((e) => res.send(e));
 });
 
 // Server
