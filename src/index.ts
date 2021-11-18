@@ -41,12 +41,14 @@ app.post('/proyectos', async (req: any, res: any) => {
 // READ
 app.get('/proyectos', async (req: any, res: any) => {
   Proyectos.find()
+    .populate('lider')
     .then((response) => res.json(response))
     .catch((e) => res.send(e));
 });
 
 app.get('/proyectos/:_id', async (req: any, res: any) => {
   Proyectos.findById(req.params._id)
+    .populate('lider')
     .then((response) => res.json(response))
     .catch((e) => res.send(e));
 });
