@@ -4,8 +4,8 @@ enum Enum_EstadoProyecto {
 }
 
 enum Enum_TipoObjetivo {
-  general = 'GENERAL',
-  especifico = 'ESPECIFICO',
+  general = 'General',
+  especifico = 'Especifico',
 }
 
 enum Enum_FaseProyecto {

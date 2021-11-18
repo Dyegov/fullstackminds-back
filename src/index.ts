@@ -17,6 +17,7 @@ require('./db.ts');
 import { Proyectos } from './models/Proyectos';
 import { Avances } from './models/Avances';
 import { Usuarios } from './models/Usuarios';
+import { Objetivos} from './models/Objetivos';
 
 // import endpoints
 // Inscripciones
@@ -143,6 +144,43 @@ app.delete('/usuarios/:_id', async (req: any, res: any) => {
 // } fin CRUD Usuarios
 
 /* --------------------------------------- */
+
+// Vista y Controlador Creación Objetivos
+// CREATE
+app.post('/objetivos', async (req: any, res: any) => {
+  Objetivos.create(req.body)
+    .then((response) => res.json(response))
+    .catch((e) => res.send(e));
+});
+
+// READ
+app.get('/objetivos', async (req: any, res: any) => {
+  Objetivos.find()
+    .then((response) => res.json(response))
+    .catch((e) => console.log(e));
+});
+
+app.get('/objetivos/:_id', async (req: any, res: any) => {
+  Objetivos.findById(req.params._id)
+    .then((response) => res.json(response))
+    .catch((e) => console.log(e));
+});
+
+// UPDATE
+app.put('/objetivos/:_id', async (req: any, res: any) => {
+  Objetivos.findByIdAndUpdate(req.params._id, req.body, { new: true, runValidators: true })
+    .then((response) => res.json(response))
+    .catch((e) => console.log(e));
+});
+
+// DELETE
+app.delete('/usuarios/:_id', async (req: any, res: any) => {
+  Objetivos.findByIdAndDelete(req.params._id)
+    .then((response) => res.json(response))
+    .catch((e) => console.log(e));
+});
+
+// } fin CRUD Objetivos
 
 // Server
 app.listen(PORT, () => {
