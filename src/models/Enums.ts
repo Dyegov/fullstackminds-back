@@ -20,4 +20,16 @@ enum Enum_EstadoIncripcion {
   rechazada = 'Rechazada',
 }
 
-export { Enum_EstadoProyecto, Enum_TipoObjetivo, Enum_FaseProyecto, Enum_EstadoIncripcion };
+enum Enum_Rol {
+  estudiante = 'Estudiante',
+  lider = 'Lider',
+  administrador = 'Administrador',
+}
+
+enum Enum_EstadoUsuario {
+  pendiente = 'Pendiente',
+  autorizado = 'Autorizado',
+  no_autorizado = 'No Autorizado',
+}
+
+export { Enum_EstadoProyecto, Enum_TipoObjetivo, Enum_FaseProyecto, Enum_EstadoIncripcion, Enum_Rol, Enum_EstadoUsuario };
