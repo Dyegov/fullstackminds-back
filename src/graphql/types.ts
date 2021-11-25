@@ -1,8 +1,8 @@
 import { gql } from "apollo-server-express";
-import { tiposEnums } from "../models/enums/types"
 import { tiposInscripcion } from "../models/inscripcion/types"
 import { tiposAvance } from '../models/avance/types';
 import { tiposProyecto } from '../models/proyecto/types';
+import { tiposEnums } from "../models/enums/types"
 
 const tiposGlobales = gql`
   scalar Date
@@ -10,8 +10,8 @@ const tiposGlobales = gql`
 
 export const tipos = [
   tiposGlobales,
-  tiposEnums,
   tiposInscripcion,
   tiposAvance,
-  tiposProyecto
+  tiposProyecto,
+  tiposEnums
 ];
