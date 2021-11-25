@@ -1,5 +1,5 @@
-import { resolversInscripciones } from '../models/inscripcion/resolvers';
+import { resolversInscripcion } from '../models/inscripcion/resolvers';
 
 export const resolvers = [
-    resolversInscripciones
+    resolversInscripcion
 ];

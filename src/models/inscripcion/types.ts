@@ -4,8 +4,8 @@ const tiposInscripcion = gql`
 
   type Inscripcion {
     _id: ID!
-    proyecto: String!
-    estudiante: String!
+    proyecto: Proyecto! 
+    estudiante: Usuario!
     estado: Enum_EstadoIncripcion
     fechaIngreso: Date!
     fechaEgreso: Date!
@@ -13,7 +13,7 @@ const tiposInscripcion = gql`
 
   type Query {
     Inscripciones: [Inscripcion]
-    Inscripcion(_id : String!): Inscripcion
+    Inscripcion(_id: String!): Inscripcion
   }
 
   type Mutation {

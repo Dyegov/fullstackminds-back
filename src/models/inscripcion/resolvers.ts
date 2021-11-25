@@ -1,14 +1,16 @@
-import { Inscripciones } from "./Inscripciones"
+import { Inscripciones } from "./Inscripcion"
 
-const resolversInscripciones = {
+const resolversInscripcion = {
     Query: {
         Inscripciones: async (parent: any, args: any) => {
-            const inscripciones = await Inscripciones.find();
+            const inscripciones = await Inscripciones.find()
+                .populate('proyecto').populate('estudiante');
             return inscripciones;
         },
 
         Inscripcion: async (parent: any, args: any) => {
-            const inscripcion = await Inscripciones.findOne({ _id: args._id });
+            const inscripcion = await Inscripciones.findOne({ _id: args._id })
+                .populate('proyecto').populate('estudiante');
             return inscripcion;
         }
     },
@@ -22,4 +24,4 @@ const resolversInscripciones = {
     }
 }
 
-export { resolversInscripciones }
+export { resolversInscripcion }
