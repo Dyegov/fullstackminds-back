@@ -1,6 +1,6 @@
 const express = require('express');
 const routerProyectos = express.Router();
-const { Proyectos } = require('../models/Proyectos');
+const { Proyectos } = require('../models/proyecto/Proyectos');
 
 // CREATE
 routerProyectos.post('/', async (req: any, res: any) => {

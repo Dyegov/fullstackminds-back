@@ -1,6 +1,6 @@
 const express = require('express');
 const routerInscripciones = express.Router();
-const { Inscripciones } = require('../models/Inscripciones');
+const { Inscripciones } = require('../models/inscripcion/Inscripcion');
 
 // Create
 routerInscripciones.post('/', async (req: any, res: any) => {
