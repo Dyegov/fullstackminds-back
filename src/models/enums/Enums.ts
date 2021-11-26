@@ -15,7 +15,7 @@ enum Enum_FaseProyecto {
   nula = '',
 }
 
-enum Enum_EstadoIncripcion {
+enum Enum_EstadoInscripcion {
   ACEPTADA = 'ACEPTADA',
   RECHAZADA = 'RECHAZADA',
   PENDIENTE = 'PENDIENTE'
@@ -33,4 +33,4 @@ enum Enum_EstadoUsuario {
   no_autorizado = 'No Autorizado',
 }
 
-export { Enum_EstadoProyecto, Enum_TipoObjetivo, Enum_FaseProyecto, Enum_EstadoIncripcion, Enum_Rol, Enum_EstadoUsuario };
+export { Enum_EstadoProyecto, Enum_TipoObjetivo, Enum_FaseProyecto, Enum_EstadoInscripcion, Enum_Rol, Enum_EstadoUsuario };
