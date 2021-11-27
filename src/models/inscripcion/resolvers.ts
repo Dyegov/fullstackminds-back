@@ -16,11 +16,30 @@ const resolversInscripcion = {
     },
 
     Mutation: {
-        crearInscripcion: async (parent: any, args: any) => { },
+        crearInscripcion: async (parent: any, args: any) => {
+            return await Inscripciones.create(args);
+        },
 
-        actualizarInscripcion: async (parent: any, args: any) => { },
+        actualizarInscripcion: async (parent: any, args: any) => {
+            if (args.estado === "ACEPTADA") {
+                return await Inscripciones.findByIdAndUpdate(
+                    { _id: args._id }, args, { new: true, runValidators: true }
+                )
+            }
 
-        eliminarInscripcion: async (parent: any, args: any) => { }
+        },
+
+        decidirInscripcion: async (parent: any, args: any) => {
+            if (args.estado === "ACEPTADA") { args.fechaIngreso = Date.now() };
+
+            return await Inscripciones.findByIdAndUpdate(
+                { _id: args._id }, args, { new: true, runValidators: true }
+            )
+        },
+
+        eliminarInscripcion: async (parent: any, args: any) => {
+            return await Inscripciones.findByIdAndDelete({ _id: args._id })
+        }
     }
 }
 

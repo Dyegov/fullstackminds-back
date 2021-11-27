@@ -29,11 +29,11 @@ const inscripcionesSchema = new Schema<Inscripcion>({
   },
   fechaIngreso: {
     type: Date,
-    required: true,
+    required: false,
   },
   fechaEgreso: {
     type: Date,
-    required: true,
+    required: false,
   },
 });
 

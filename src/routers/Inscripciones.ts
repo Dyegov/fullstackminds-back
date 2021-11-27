@@ -4,18 +4,14 @@ const { Inscripciones } = require('../models/inscripcion/Inscripcion');
 
 // Create
 routerInscripciones.post('/', async (req: any, res: any) => {
-  const inscripcion = req.body;
-  inscripcion.fechaIngreso = new Date();
-  inscripcion.fechaEgreso = new Date(inscripcion.fechaEgreso);
-
-  Inscripciones.create(inscripcion)
+  Inscripciones.create(req.body)
     .then((response: any) => res.json(response))
     .catch((err: any) => res.send(err));
 });
 
 // Get all
 routerInscripciones.get('/', async (req: any, res: any) => {
-  Inscripciones.find() //.populate('Usuarios')
+  Inscripciones.find()
     .then((response: any) => {
       res.json(response);
     })
@@ -39,7 +35,8 @@ routerInscripciones.get('/:id', async (req: any, res: any) => {
 
 // Update by id
 routerInscripciones.put('/:id', async (req: any, res: any) => {
-  Inscripciones.findByIdAndUpdate({ _id: req.params.id }, req.body, { runValidators: true })
+  if (req.body.estado === "ACEPTADA") { req.body.fechaIngreso = Date.now(); }
+  Inscripciones.findByIdAndUpdate({ _id: req.params.id }, req.body, { new: true, runValidators: true })
     .then((response: any) => {
       res.json(response);
     })

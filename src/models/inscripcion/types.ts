@@ -18,15 +18,19 @@ const tiposInscripcion = gql`
 
   type Mutation {
     crearInscripcion(
-      proyecto: Proyecto! 
-      estudiante: Usuario! 
+      proyecto: String! 
+      estudiante: String! 
     ): Inscripcion
 
     actualizarInscripcion(
       _id: String!
-      estado: Enum_EstadoInscripcion
-      fechaIngreso: Date
+      estado: Enum_EstadoInscripcion!
       fechaEgreso: Date
+    ): Inscripcion
+
+    decidirInscripcion(
+      _id: String!
+      estado: Enum_EstadoInscripcion!
     ): Inscripcion
 
     eliminarInscripcion(_id: String!): Inscripcion
