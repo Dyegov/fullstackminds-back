@@ -37,10 +37,7 @@ const resolversAvances = {
       const avanceActualizado = Avances.findByIdAndUpdate(
         { _id: args._id },
         {
-          fecha: args.fecha,
           descripcion: args.descripcion,
-          proyecto: args.proyecto,
-          creadoPor: args.creadoPor,
         },
         { new: true }
       );
