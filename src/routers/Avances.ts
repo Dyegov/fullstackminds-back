@@ -1,6 +1,6 @@
 const express = require('express');
 const routerAvances = express.Router();
-const { Avances } = require('../models/Avances');
+const { Avances } = require('../models/avance/avance');
 
 // CREATE
 routerAvances.post('/', async (req: any, res: any) => {

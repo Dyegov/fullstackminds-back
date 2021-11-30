@@ -23,6 +23,36 @@ const resolversAvances = {
       });
       return avanceCreado;
     },
+
+    agregarObservacion: async (parents: any, args: any) => {
+      const avanceAgregadoObservacion = Avances.findByIdAndUpdate(
+        { _id: args._id },
+        { $push: { observaciones: args.observaciones } },
+        { new: true }
+      );
+      return avanceAgregadoObservacion;
+    },
+
+    actualizarAvance: async (parents: any, args: any) => {
+      const avanceActualizado = Avances.findByIdAndUpdate(
+        { _id: args._id },
+        {
+          fecha: args.fecha,
+          descripcion: args.descripcion,
+          proyecto: args.proyecto,
+          creadoPor: args.creadoPor,
+        },
+        { new: true }
+      );
+      return avanceActualizado;
+    },
+
+    eliminarAvance: async (parents: any, args: any) => {
+      const avanceEliminado = Avances.findByIdAndDelete({
+        _id: args._id,
+      });
+      return avanceEliminado;
+    },
   },
 };
 
