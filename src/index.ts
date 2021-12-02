@@ -8,10 +8,10 @@ import dotenv from 'dotenv';
 dotenv.config();
 
 // Intanciar servidor de Apollo
-// const server = new ApolloServer({
-//   typeDefs: tipos,
-//   resolvers: resolvers,
-// });
+const server = new ApolloServer({
+  typeDefs: tipos,
+  resolvers: resolvers,
+});
 
 // App
 const app = express();
@@ -25,22 +25,22 @@ app.use(cors());
 require('./db.ts');
 
 // import routers
-import { routerInscripciones } from './routers/Inscripciones';
-import { routerProyectos } from './routers/Proyectos';
-import { routerAvances } from './routers/Avances';
-import { routerUsuarios } from './routers/Usuarios';
-import { routerObjetivos } from './routers/Objetivos';
+// import { routerInscripciones } from './routers/Inscripciones';
+// import { routerProyectos } from './routers/Proyectos';
+// import { routerAvances } from './routers/Avances';
+// import { routerUsuarios } from './routers/Usuarios';
+// import { routerObjetivos } from './routers/Objetivos';
 
 // use routers
-app.use('/inscripciones', routerInscripciones);
-app.use('/proyectos', routerProyectos);
-app.use('/avances', routerAvances);
-app.use('/usuarios', routerUsuarios);
-app.use('/objetivos', routerObjetivos);
+// app.use('/inscripciones', routerInscripciones);
+// app.use('/proyectos', routerProyectos);
+// app.use('/avances', routerAvances);
+// app.use('/usuarios', routerUsuarios);
+// app.use('/objetivos', routerObjetivos);
 
 // Server
 app.listen(PORT, async () => {
-  // await server.start();
-  // server.applyMiddleware({ app });
+  await server.start();
+  server.applyMiddleware({ app });
   console.log(`API corriendo en el puerto ${PORT}`);
 });
