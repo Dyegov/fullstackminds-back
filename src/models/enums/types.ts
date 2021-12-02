@@ -18,6 +18,11 @@ const tiposEnums = gql`
     RECHAZADA
     PENDIENTE
   }
+
+  enum Enum_TipoObjetivo {
+    GENERAL
+    ESPECIFICO
+  }
 `;
 
 export { tiposEnums };
