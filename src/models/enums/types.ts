@@ -23,6 +23,18 @@ const tiposEnums = gql`
     GENERAL
     ESPECIFICO
   }
+
+  enum Enum_Rol {
+    ESTUDIANTE
+    LIDER
+    ADMINISTRADOR
+  }
+  
+  enum Enum_EstadoUsuario {
+    PENDIENTE
+    AUTORIZADO
+    NO_AUTORIZADO
+  }
 `;
 
 export { tiposEnums };
