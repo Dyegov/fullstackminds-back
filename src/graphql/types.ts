@@ -1,4 +1,5 @@
 import { gql } from "apollo-server-express";
+import { tiposUsuario } from "../models/usuario/types"
 import { tiposInscripcion } from "../models/inscripcion/types"
 import { tiposAvance } from '../models/avance/types';
 import { tiposProyecto } from '../models/proyecto/types';
@@ -10,6 +11,7 @@ const tiposGlobales = gql`
 
 export const tipos = [
   tiposGlobales,
+  tiposUsuario,
   tiposInscripcion,
   tiposAvance,
   tiposProyecto,
