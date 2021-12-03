@@ -29,7 +29,7 @@ const tiposEnums = gql`
     LIDER
     ADMINISTRADOR
   }
-  
+
   enum Enum_EstadoUsuario {
     PENDIENTE
     AUTORIZADO
