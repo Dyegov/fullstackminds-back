@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "start": "node src/index.ts",
+    "start": "nodemon src/index.ts",
     "dev": "nodemon src/index.ts",
     "build": "tsc -p ."
   },
@@ -20,8 +20,11 @@
   },
   "homepage": "https://github.com/Dyegov/fullstackminds#readme",
   "dependencies": {
+    "apollo-server-express": "^3.5.0",
     "cors": "^2.8.5",
+    "dotenv": "^10.0.0",
     "express": "^4.17.1",
+    "graphql": "^16.0.1",
     "mongoose": "^6.0.13"
   },
   "devDependencies": {
