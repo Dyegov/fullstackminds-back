@@ -8,6 +8,7 @@ const tiposUsuario = gql`
     identificacion: String!
     correo: String!
     rol: Enum_Rol!
+    password: String!
     estado: Enum_EstadoUsuario
     inscripciones: [Inscripcion]
     avancesCreados: [Avance]
@@ -36,6 +37,7 @@ const tiposUsuario = gql`
       estado: Enum_EstadoUsuario!
     ): Usuario
     eliminarUsuario(_id: String, correo: String): Usuario
+    Login(correo: String!, password: String!): Usuario
   }
 `;
 
