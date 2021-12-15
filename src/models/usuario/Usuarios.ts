@@ -7,11 +7,12 @@ interface Usuarios {
   nombre: string;
   apellido: string;
   rol: Enum_Rol;
+  password: string;
   estado: Enum_EstadoUsuario;
 }
 
 const usuariosSchema = new Schema<Usuarios>({
-  correo:{
+  correo: {
     type: String,
     required: true,
     unique: true,
@@ -22,7 +23,7 @@ const usuariosSchema = new Schema<Usuarios>({
       message: 'Escribe un correo valido.',
     },
   },
-  identificacion:{
+  identificacion: {
     type: String,
     required: true,
     unique: true,
@@ -38,6 +39,10 @@ const usuariosSchema = new Schema<Usuarios>({
   rol: {
     type: String,
     enum: Enum_Rol,
+  },
+  password: {
+    type: String,
+    required: true,
   },
   estado: {
     type: String,
